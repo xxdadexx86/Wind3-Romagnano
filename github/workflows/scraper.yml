@@ -1,0 +1,32 @@
+name: Aggiorna Promozioni WindTre
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codice
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Installa dipendenze
+        run: pip install requests beautifulsoup4
+
+      - name: Esegui scraper
+        run: python scraper.py
+
+      - name: Commit e Push dei dati
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add public/promozioni.json
+          git commit -m "Aggiorna promozioni WindTre"
+          git push
