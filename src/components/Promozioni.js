@@ -11,20 +11,14 @@ const Promozioni = () => {
   }, []);
 
   return (
-    <section style={{ padding: '2rem', backgroundColor: '#f5f5f5' }}>
-      <h2>Promozioni WindTre</h2>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+    <section className="p-8 bg-gray-100">
+      <h2 className="text-2xl font-semibold mb-4">Promozioni WindTre</h2>
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
         {promozioni.map((promo, idx) => (
-          <div key={idx} style={{
-            border: '1px solid #ccc',
-            borderRadius: '8px',
-            padding: '1rem',
-            maxWidth: '250px',
-            backgroundColor: '#fff'
-          }}>
-            {promo.immagine && <img src={promo.immagine} alt={promo.titolo} style={{ width: '100%', borderRadius: '5px' }} />}
-            <h3 style={{ fontSize: '1.1rem' }}>{promo.titolo}</h3>
-            <a href={promo.link} target="_blank" rel="noopener noreferrer">Scopri di più</a>
+          <div key={idx} className="bg-white rounded shadow p-4">
+            {promo.immagine && <img src={promo.immagine} alt={promo.titolo} className="rounded mb-2" />}
+            <h3 className="text-lg font-bold">{promo.titolo}</h3>
+            <a href={promo.link} target="_blank" rel="noopener noreferrer" className="text-orange-600 underline">Scopri di più</a>
           </div>
         ))}
       </div>

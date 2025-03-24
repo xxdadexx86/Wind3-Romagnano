@@ -1,6 +1,9 @@
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f7f7f7;
+  background-color: #f8f9fa;
   color: #333;
 }
